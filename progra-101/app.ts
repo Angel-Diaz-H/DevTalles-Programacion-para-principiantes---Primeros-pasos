@@ -1,11 +1,10 @@
-let numberOfLines = 0;
+//Strings.
+let firstName: string = 'Angel';
+let lastName: string = 'Díaz';
 
-function printLineNumber() {
-    console.log('Línea # ', numberOfLines);
-    numberOfLines++;
-}
+// console.log(firstName, lastName);
+// Aquí ya no es necesario el tipado porque TS infiere el tipo de dato.
+// Here is not necessary to type because TS infers the data type.
+let fullName: string = firstName + ' ' + lastName;
 
-printLineNumber();
-printLineNumber();
-printLineNumber();
-printLineNumber();
+console.log(fullName);
