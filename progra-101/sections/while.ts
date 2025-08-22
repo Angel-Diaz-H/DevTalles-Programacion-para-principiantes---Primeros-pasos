@@ -1,4 +1,4 @@
-let gasTank = 0;
+export let gasTank = 0;
 
 while (gasTank > 0) {
     console.log("Gasolina restante: ", gasTank);
