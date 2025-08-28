@@ -23,10 +23,25 @@ class Car {
     constructor() {
         this.brand = 'No brand';
         this.doors = 0;
-        this.fuelTank = 0;
+        this.fuelTank = 100;
         this.isRunning = false;
         this.type = 'No type';
         this.createdAt = 123456789;
+    }
+
+    turnOn() {
+        if(this.isRunning) {
+            console.log('El carro ya estaba encendido, se dañó el motor.');
+            return; // Detiene la ejecución del método.
+        }
+
+        if (this.fuelTank <= 0) {
+            console.log('El carro no tiene gasolina.');
+            return;
+        }
+
+        this.isRunning = true;
+        console.log("El carro está encendido.");
     }
 }
 
@@ -34,7 +49,6 @@ class Car {
 let myMazda = new Car();
 
 // Mostramos el objeto completo
-console.log(myMazda); // 👉 Es una instancia de la clase Car
-
-// Accedemos a una propiedad específica del objeto
-console.log(myMazda.brand); // 👉 "No brand"
+console.log(myMazda); // Inició apagado.
+myMazda.turnOn(); // El método encendió el carro.
+console.log(myMazda); //
