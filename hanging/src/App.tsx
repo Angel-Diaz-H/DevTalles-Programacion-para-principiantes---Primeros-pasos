@@ -5,8 +5,8 @@ import { useState } from 'react'
 
 function App() {
 
-  const [word] = useState('WE'); // CaseSensitive.
-  const [hidenWord] = useState('_ '.repeat(word.length));
+  const [word] = useState('COMPUTADORA'); // CaseSensitive.
+  const [hidenWord, setHidenWord] = useState('_ '.repeat(word.length));
 
   // Manejar el estado. El estado de las variables sirven para que modifiquen el HTML.
   // Una función. 
@@ -19,8 +19,20 @@ function App() {
   */
 
   const checkLetter = (letter: string) => {
-    console.log(letter);
-    setAttemps(Math.min(attemps + 1, 9));
+    if (!word.includes(letter)) {
+      setAttemps(Math.min(attemps + 1, 9));
+      return;
+    }
+
+    const hiddenWordArray = hidenWord.split(' ');
+
+    for (let i = 0; i < word.length; i++) {
+      if(word[i] === letter) {
+        hiddenWordArray[i] = letter;
+      }
+    }
+
+    setHidenWord(hiddenWordArray.join(' '))
   }
 
   return (
@@ -29,7 +41,7 @@ function App() {
     <HangImage imageNumber = {attemps} />
 
     {/* Palabra oculta */}
-    <h3>_______________</h3>
+    <h3>{hidenWord}</h3>
 
     {/* Contador de intentos. */}
     <h3>Intentos: {attemps}</h3>
