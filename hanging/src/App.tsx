@@ -4,6 +4,10 @@ import { HangImage } from './components/HangImage'
 import { useState } from 'react'
 
 function App() {
+
+  const [word] = useState('COMPUTADORA'); // CaseSensitive.
+  const [hidenWord] = useState('_ '.repeat(word.length));
+
   // Manejar el estado. El estado de las variables sirven para que modifiquen el HTML.
   // Una función. 
   const [attemps, setAttemps] = useState(0);
