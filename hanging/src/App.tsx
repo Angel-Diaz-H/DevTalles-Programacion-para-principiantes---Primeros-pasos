@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 function App() {
 
-  const [word] = useState('COMPUTADORA'); // CaseSensitive.
+  const [word] = useState('WE'); // CaseSensitive.
   const [hidenWord] = useState('_ '.repeat(word.length));
 
   // Manejar el estado. El estado de las variables sirven para que modifiquen el HTML.
