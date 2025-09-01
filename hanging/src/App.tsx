@@ -2,10 +2,11 @@ import {letters} from './helpers/letters'
 import './App.css'
 import { HangImage } from './components/HangImage'
 import { useEffect, useState } from 'react'
+import { getRandomWord } from './helpers/getRandomWord';
 
 function App() {
 
-  const [word] = useState('COMPUTADORA'); // CaseSensitive.
+  const [word] = useState(getRandomWord()); // CaseSensitive.
   const [hidenWord, setHidenWord] = useState('_ '.repeat(word.length));
 
   // Manejar el estado. El estado de las variables sirven para que modifiquen el HTML.
