@@ -67,3 +67,6 @@ export default tseslint.config([
   },
 ])
 ```
+
+
+La carpeta dist se usa para tener los archivos en producción. Se encuentra ofuscado para que la gente no pueda verlos.
