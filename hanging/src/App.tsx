@@ -4,9 +4,11 @@ import { HangImage } from './components/HangImage'
 import { useEffect, useState } from 'react'
 import { getRandomWord } from './helpers/getRandomWord';
 
+// Se puede optimizar, pero para este curso es suficiente. Si se requiere optimizar aprender más sobre React.
+
 function App() {
 
-  const [word] = useState(getRandomWord()); // CaseSensitive.
+  const [word, setWord] = useState(getRandomWord()); // CaseSensitive.
   const [hidenWord, setHidenWord] = useState('_ '.repeat(word.length));
 
   // Manejar el estado. El estado de las variables sirven para que modifiquen el HTML.
@@ -59,6 +61,16 @@ function App() {
     setHidenWord(hiddenWordArray.join(' '))
   }
 
+  const newGame = () => {
+    const newWord = getRandomWord();
+
+    setWord(newWord);
+    setHidenWord('_ '.repeat(newWord.length));
+    setAttemps(0);
+    setLose(false);
+    setWon(false);
+  }
+
   return (
   <div  className="App">
     {/* Imágenes */}
@@ -80,7 +92,7 @@ function App() {
     {/* Mensaje si ganó */}
     {
       (won)
-      ? <h2>¡Felicidades, ganó el juego!</h2>
+      ? <h2>¡Felicidades, ganaste el juego!</h2>
       : ''
     }
     
@@ -93,6 +105,10 @@ function App() {
             {letter}</button>
       ))
     }
+
+    <br />
+    <br />
+    <button onClick = {newGame}>Reiniciar juego.</button>
   </div>
   )
 }
